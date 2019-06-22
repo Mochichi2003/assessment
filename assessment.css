@@ -1,20 +1,77 @@
 body {
-  background-color: #04A6EB;
-  color: #FDFFFF;
+  background-color: #04a6eb;
+  color: #fdffff;
   width: 500px;
   margin-right: auto;
-  margin-left : auto;
+  margin-left: auto;
+  display: block;
+}
+#user-name {
+  /* border-radius: 6px;
+  padding:2px 1px 1px 7px;
+  font-size: 16px; */
 }
 button {
   padding: 5px 20px;
-  background-color: #337AB7;
-  color: #FDFFFF;
-  border-color: #2E6DA4;
+  background-color: #337ab7;
+  color: #fdffff;
+  border-color: rgb(28, 135, 228);
   border-style: none;
 }
 input {
   height: 20px;
 }
-p{
+p {
   font-size: 18px;
+}
+
+button {
+  cursor: pointer;
+  transition: 200ms;
+}
+button:hover {
+  box-shadow: 3px 3px 3px #333333;
+}
+
+.addresult-area{
+/* border: 1px solid #666; */
+font-size: 40px;
+margin: auto;
+width: 350px;
+animation-name: addresultAreaAnimation;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+margin-top:40px;
+text-align: center;
+}
+@keyframes addresultAreaAnimation {
+  0%{
+    transform: rotate(1deg);
+  }
+  50%{
+    transform: rotate(-1deg);
+  }
+  100%{
+    transform: rotate(1deg);
+  }
+}
+.addresult-area h3:after{
+  content: "";
+  animation-name: addresultAreaAfterAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes addresultAreaAfterAnimation{
+  0%{
+    content: ".";
+  }
+  33%{
+    content: "..";
+  }
+  66%{
+    content: "...";
+  }
+  100%{
+    content: "";
+  }
 }

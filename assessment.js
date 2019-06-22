@@ -1,10 +1,14 @@
-(function () {
+(function Diagnosis() {
   'use strict';
   const userNameInput = document.getElementById('user-name');
+  //const userNameInputValue = document.getElementById('user-name');.value;
   const assessmentButton = document.getElementById('assessment');
   const resultDivided = document.getElementById('result-area');
   const tweetDivided = document.getElementById('tweet-area');
-
+  const UnderDiagnosis = document.getElementById('UnderDiagnosis-area')
+  var addResultArea = document.getElementById('result-area');
+  //console.log(userNameInput).value;
+  
   /**
   * 指定した要素の子どもを全て除去する
   * @param {HTMLElement} element HTMLの要素
@@ -14,13 +18,42 @@
       element.removeChild(element.firstChild);
     }
   }
-
   assessmentButton.onclick = () => {
-    const userName = userNameInput.value;
-    if (userName.length === 0) { // 名前が空の時は処理を終了する
-      return;
-    }
-
+  console.log("くりっくしたで");
+  };
+  assessmentButton.onclick = () => {
+  //const userName = userNameInput.value;
+  const userName = userNameInput.value;
+  if (userName.length === 0) { // 名前が空の時は処理を終了する
+    return;
+  }
+  // if (userName.length === 0) {
+  //   return;
+  // };
+  // const userName = userNameInput.value;
+  //   if (userName.length === 0) { // 名前が空の時は処理を終了する
+  //     return;
+  //   }
+    setTimeout(() => {
+      //classを追加ついかして揺れる
+     // var addResultArea = document.getElementById('result-area');
+      addResultArea.classList.add("addresult-area");
+      console.log("classを追加しました");
+      //診断中を追加
+      removeAllChildren(resultDivided);
+      const header = document.createElement('h3');
+      header.innerText = '診断中  ';
+      resultDivided.appendChild(header);
+      
+    }, 1);
+  setTimeout(() => {
+    //classを削除
+    addResultArea.classList.remove("addresult-area");
+    console.log("classを削除しました");
+    
+  }, 5999);
+  console.log("診断結果");
+    setTimeout(() => {
     // 診断結果表示エリアの作成
     removeAllChildren(resultDivided);
     const header = document.createElement('h3');
@@ -29,28 +62,33 @@
 
     const paragraph = document.createElement('p');
     const result = assessment(userName);
-    paragraph.innerText = result;
+    paragraph.innerText = (result);
     resultDivided.appendChild(paragraph);
 
     // ツイートエリアの作成
+    // ツイートエリアの作成
     removeAllChildren(tweetDivided);
     const anchor = document.createElement('a');
-    const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D&text='
-    + encodeURIComponent(result);
+    const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag='
+            + encodeURIComponent('あなたのいいところ')
+            + '&ref_src=twsrc%5Etfw';
     anchor.setAttribute('href', hrefValue);
     anchor.className = 'twitter-hashtag-button';
-    anchor.innerText = 'Tweet #%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D';
+    anchor.setAttribute('data-text', result);
+    anchor.innerText = 'Tweet #あなたのいいところ';
     tweetDivided.appendChild(anchor);
 
     twttr.widgets.load();
+  }, 6000);
+  //assessmentButton.onclickはここまで
   };
 
-  userNameInput.onkeydown = (event) => {
-    if (event.keyCode === 13) {
-      assessmentButton.onclick();
-    }
-  };
-
+  // userNameInput.onkeydown = (event) => {
+  //   if (event.keyCode === 13) {
+  //     assessmentButton.onclick();
+  // }
+  //};
+  
   const answers = [
     '{userName}のいいところは声です。{userName}の特徴的な声は皆を惹きつけ、心に残ります。',
     '{userName}のいいところはまなざしです。{userName}に見つめられた人は、気になって仕方がないでしょう。',
@@ -100,3 +138,11 @@
     '入力が同じ名前なら同じ診断結果を出力する処理が正しくありません。'
   );
 })();
+setTimeout(() => {
+  console.log("３秒");
+  
+}, 3000);
+setTimeout(() => {
+  console.log("4秒");
+  
+}, 4000);
