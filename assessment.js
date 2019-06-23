@@ -34,15 +34,15 @@
   //   if (userName.length === 0) { // 名前が空の時は処理を終了する
   //     return;
   //   }
-    setTimeout(() => {
+  setTimeout(() => {
       //classを追加ついかして揺れる
      // var addResultArea = document.getElementById('result-area');
       addResultArea.classList.add("addresult-area");
       console.log("classを追加しました");
       //診断中を追加
       removeAllChildren(resultDivided);
-      const header = document.createElement('h3');
-      header.innerText = '診断中  ';
+      const header = document.createElement('h2');
+      header.innerText = '診断中';
       resultDivided.appendChild(header);
       
     }, 1);

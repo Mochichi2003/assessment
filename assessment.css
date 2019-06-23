@@ -12,22 +12,25 @@ button {
   color: #fdffff;
   border-color: rgb(28, 135, 228);
   border-style: none;
-}
-input {
-  height: 20px;
-}
-p {
-  font-size: 18px;
-}
-
-button {
   cursor: pointer;
   transition: 200ms;
+  border-radius:8px;
+  height: 40px;
+  font-size: 16px;
 }
 button:hover {
   box-shadow: 3px 3px 3px #333333;
 }
+input {
+  height: 20px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
+p {
+  font-size: 18px;
+}
 .addresult-area{
 /* border: 1px solid #666; */
 font-size: 40px;
@@ -50,7 +53,7 @@ text-align: center;
     transform: rotate(1deg);
   }
 }
-.addresult-area h3:after{
+.addresult-area h2:after{
   content: "";
   animation-name: addresultAreaAfterAnimation;
   animation-duration: 2s;
@@ -58,15 +61,18 @@ text-align: center;
 }
 @keyframes addresultAreaAfterAnimation{
   0%{
-    content: ".";
-  }
-  33%{
-    content: "..";
-  }
-  66%{
-    content: "...";
-  }
-  100%{
     content: "";
   }
+  25%{
+    content: ".";
+  }
+  50%{
+    content: "..";
+  }
+  75%{
+    content: "...";
+  }
+}
+.addresult-area h3{
+  font-size: 20px;
 }
