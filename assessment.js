@@ -5,10 +5,60 @@
   const assessmentButton = document.getElementById('assessment');
   const resultDivided = document.getElementById('result-area');
   const tweetDivided = document.getElementById('tweet-area');
-  const UnderDiagnosis = document.getElementById('UnderDiagnosis-area')
+  const UnderDiagnosis = document.getElementById('UnderDiagnosis-area');
   var addResultArea = document.getElementById('result-area');
+  const doButton  = document.getElementById('do1');
+  const doNotButton = document.getElementById('do2');
+  const ugokasuhelp = document.getElementById('ugokasu');
+  var sinaidebutton = document.getElementById('do2');
+  var sinaide = null;
+  // しないでを押したときの返事
+  const sinaideAnswers = [
+    'するよね!',
+    'まさか診断しないわけないよね',
+    '診断しなさい',
+    'お願い♡',
+    'するよね...',
+    'しないと怒るよ',
+    'いい加減怒りますよ!💢💢',
+    'するでをクリックしてこださいお願いします',
+    'えっ',
+    'してよ…',
+    'きみは診断しないフレンズなんだね',
+    'なるほどきみはそういうやつだったのか',
+    'これが最後だからね',
+    'フリじゃないよ',
+    '本当だよ',
+    'No signal'
+  ]
+
   //console.log(userNameInput).value;
-  
+  doNotButton.onclick = () =>{
+    console.log("'しないで'をクリックしたで");
+    
+    if (sinaide >= 15) {
+      
+    } else {
+      sinaide = sinaide + 1;
+    }
+    console.log(sinaide);
+    document.getElementById('ask').innerText = sinaideAnswers[sinaide];
+    console.log(sinaideAnswers[sinaide] + " 17行目");
+    
+  };
+  doButton.onclick = () =>{
+    console.log("'するで'をクリックしたで");
+    doButton.classList.add('ugokasuueni');
+    ugokasuhelp.classList.add('ugokasuDoA');
+    setTimeout(() => {
+      console.log("4000msたったよ");
+      document.getElementById("ugokasu").remove();
+    }, 2000);
+  };
+
+
+
+
   /**
   * 指定した要素の子どもを全て除去する
   * @param {HTMLElement} element HTMLの要素
@@ -69,15 +119,12 @@
     // ツイートエリアの作成
     removeAllChildren(tweetDivided);
     const anchor = document.createElement('a');
-    const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag='
-            + encodeURIComponent('あなたのいいところ')
-            + '&ref_src=twsrc%5Etfw';
+    const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag='  + encodeURIComponent('あなたのいいところ') + '&ref_src=twsrc%5Etfw';
     anchor.setAttribute('href', hrefValue);
     anchor.className = 'twitter-hashtag-button';
     anchor.setAttribute('data-text', result);
-    anchor.innerText = 'Tweet #あなたのいいところ';
+      anchor.innerText = 'Tweet #あなたのいいところ';
     tweetDivided.appendChild(anchor);
-
     twttr.widgets.load();
   }, 6000);
   //assessmentButton.onclickはここまで
@@ -138,11 +185,11 @@
     '入力が同じ名前なら同じ診断結果を出力する処理が正しくありません。'
   );
 })();
-setTimeout(() => {
-  console.log("３秒");
+// setTimeout(() => {
+//   console.log("３秒");
   
-}, 3000);
-setTimeout(() => {
-  console.log("4秒");
+// }, 3000);
+// setTimeout(() => {
+//   console.log("4秒");
   
-}, 4000);
+// }, 4000);
