@@ -12,6 +12,7 @@
   const ugokasuhelp = document.getElementById('ugokasu');
   var sinaidebutton = document.getElementById('do2');
   var sinaide = null;
+  var header = document.getElementById('result-area')
   // しないでを押したときの返事
   const sinaideAnswers = [
     'するよね!',
@@ -29,20 +30,20 @@
     'これが最後だからね',
     'フリじゃないよ',
     '本当だよ',
-    'No signal'
+    'No signal',
+    '___'
   ]
 
   //console.log(userNameInput).value;
   doNotButton.onclick = () =>{
     console.log("'しないで'をクリックしたで");
     
-    if (sinaide >= 15) {
-      
+    if (sinaide >= sinaideAnswers.length- 1) {
     } else {
       sinaide = sinaide + 1;
+      document.getElementById('ask').innerText = sinaideAnswers[sinaide];
     }
     console.log(sinaide);
-    document.getElementById('ask').innerText = sinaideAnswers[sinaide];
     console.log(sinaideAnswers[sinaide] + " 17行目");
     
   };
@@ -51,7 +52,7 @@
     doButton.classList.add('ugokasuueni');
     ugokasuhelp.classList.add('ugokasuDoA');
     setTimeout(() => {
-      console.log("4000msたったよ");
+      console.log("2000msたったよ");
       document.getElementById("ugokasu").remove();
     }, 2000);
   };
@@ -90,11 +91,11 @@
       addResultArea.classList.add("addresult-area");
       console.log("classを追加しました");
       //診断中を追加
-      removeAllChildren(resultDivided);
-      const header = document.createElement('h2');
-      header.innerText = '診断中';
-      resultDivided.appendChild(header);
-      
+    removeAllChildren(resultDivided);
+      //const header = document.createElement('table');
+      addResultArea.innerHTML = '<table class="loadtable"><td><p class="load1"></p></td><td><p class="load2"></p></td><td><p class="load3"></p></td></table>';
+      // resultDivided.appendChild(header);
+      // document.write
     }, 1);
   setTimeout(() => {
     //classを削除
