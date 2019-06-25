@@ -30,6 +30,7 @@
     'これが最後だからね',
     'フリじゃないよ',
     '本当だよ',
+    'これで最後だよ',
     'No signal',
     '___'
   ]
@@ -38,8 +39,9 @@
   doNotButton.onclick = () =>{//しないでをクリックしたときの処理
     console.log("'しないで'をクリックしたで");
     
-    if (sinaide >= sinaideAnswers.length- 1) {
-    } else {
+    if (sinaide >= sinaideAnswers.length - 1) {
+    }
+    else {
       sinaide = sinaide + 1;
       document.getElementById('ask').innerText = sinaideAnswers[sinaide];
     }
@@ -56,8 +58,6 @@
       document.getElementById("ugokasu").remove();
     }, 2000);
   };
-
-
 
 
   /**
@@ -94,7 +94,7 @@
       //診断中を追加
     removeAllChildren(resultDivided);
       //const header = document.createElement('table');
-      addResultArea.innerHTML = '<table class="loadtable"><td><p class="load1"></p></td><td><p class="load2"></p></td><td><p class="load3"></p></td></table>';
+      addResultArea.innerHTML = '<table class="loadtable"><td><p class="load4">診断中</p></td><td><p class="load1"></p></td><td><p class="load2"></p></td><td><p class="load3"></p></td></table>';
       // resultDivided.appendChild(header);
       // document.write
     }, 1);
