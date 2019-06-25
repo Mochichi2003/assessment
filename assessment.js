@@ -35,7 +35,7 @@
   ]
 
   //console.log(userNameInput).value;
-  doNotButton.onclick = () =>{
+  doNotButton.onclick = () =>{//しないでをクリックしたときの処理
     console.log("'しないで'をクリックしたで");
     
     if (sinaide >= sinaideAnswers.length- 1) {
@@ -47,7 +47,7 @@
     console.log(sinaideAnswers[sinaide] + " 17行目");
     
   };
-  doButton.onclick = () =>{
+  doButton.onclick = () =>{//するでのボタンを押したときの処理
     console.log("'するで'をクリックしたで");
     doButton.classList.add('ugokasuueni');
     ugokasuhelp.classList.add('ugokasuDoA');
@@ -89,7 +89,8 @@
       //classを追加ついかして揺れる
      // var addResultArea = document.getElementById('result-area');
       addResultArea.classList.add("addresult-area");
-      console.log("classを追加しました");
+    console.log("classを追加しました");
+    assessmentButton.classList.add("Notactive");
       //診断中を追加
     removeAllChildren(resultDivided);
       //const header = document.createElement('table');
@@ -101,6 +102,7 @@
     //classを削除
     addResultArea.classList.remove("addresult-area");
     console.log("classを削除しました");
+    assessmentButton.classList.remove("Notactive");
     
   }, 5999);
   console.log("診断結果");
